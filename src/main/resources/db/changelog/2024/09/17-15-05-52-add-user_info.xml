@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="17-15-05-52-add-user_info" author="pavcore">
+        <createTable tableName="user_info">
+            <column name="id" type="bigserial">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="first_name" type="varchar(64)"/>
+            <column name="last_name" type="varchar(128)"/>
+            <column name="phone" type="int"/>
+            <column name="address" type="varchar(256)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

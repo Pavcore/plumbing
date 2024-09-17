@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="17-14-59-14-add-order-product" author="pavcore">
+        <createTable tableName="order_product">
+            <column name="id" type="bigserial">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="order_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="17-15-02-14-add-order-fk" author="pavcore">
+        <addForeignKeyConstraint
+                baseTableName="order_product"
+                baseColumnNames="order_id"
+                constraintName="order-fk"
+                onDelete="RESTRICT"
+                onUpdate="RESTRICT"
+                referencedTableName="order"
+                referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet id="17-15-05-14-add-product-fk" author="pavcore">
+        <addForeignKeyConstraint
+                baseTableName="order_product"
+                baseColumnNames="product_id"
+                constraintName="product-fk"
+                onDelete="RESTRICT"
+                onUpdate="RESTRICT"
+                referencedTableName="products"
+                referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>
