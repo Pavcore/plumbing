@@ -2,6 +2,10 @@ package com.pavcore.plumbing.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController("/api/users")
 public class UserController {
+
+
+
+
 }

@@ -35,7 +35,7 @@ public class User {
     @Column(name = "role_id")
     private Role role;
 
-    @OneToOne(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private UserInfo userInfo;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
