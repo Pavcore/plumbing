@@ -35,7 +35,7 @@ public class Product {
     private String color;
 
     @Column(name = "article_number")
-    private int articleNumber;
+    private long articleNumber;
 
     @Column(name = "description", length = 2048)
     private String description;

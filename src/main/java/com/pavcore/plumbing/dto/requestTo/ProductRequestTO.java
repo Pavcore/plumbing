@@ -16,7 +16,7 @@ public class ProductRequestTO {
     private double weight;
     private String material;
     private String color;
-    private int articleNumber;
+    private long articleNumber;
     private String description;
 
 }

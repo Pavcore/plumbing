@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class UserInfoResponseTO {
 
+    private long id;
     private String firstName;
     private String lastName;
     private String phone;

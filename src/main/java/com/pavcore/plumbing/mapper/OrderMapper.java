@@ -5,7 +5,7 @@ import com.pavcore.plumbing.dto.responseTo.OrderResponseTO;
 import com.pavcore.plumbing.entiy.Order;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface OrderMapper {
 
     Order mapReq(OrderRequestTO orderRequestTO);

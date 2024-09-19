@@ -19,7 +19,8 @@ public class UserInfo {
     @Column(name = "id")
     private long id;
 
-    @OneToOne(fetch = FetchType.EAGER, mappedBy = "userInfo", cascade = CascadeType.ALL)
+    @OneToOne()
+    @JoinColumn(name = "user_id")
     private User user;
 
     @Column(name = "first_name", length = 64)

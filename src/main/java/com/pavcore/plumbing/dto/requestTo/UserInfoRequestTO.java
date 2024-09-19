@@ -11,10 +11,10 @@ import lombok.NoArgsConstructor;
 @Data
 public class UserInfoRequestTO {
 
+    private long userId;
     private String firstName;
     private String lastName;
     private String phone;
     private String address;
-    private long userId;
 
 }

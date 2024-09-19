@@ -31,13 +31,13 @@ public class User {
     @Column(name = "email", unique = true, nullable = false, length = 128)
     private String email;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     @Column(name = "role_id")
     private Role role;
 
-    @OneToOne(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "user")
     private UserInfo userInfo;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Order> orderList;
 }

@@ -5,7 +5,7 @@ import com.pavcore.plumbing.dto.responseTo.ProductResponseTO;
 import com.pavcore.plumbing.entiy.Product;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface ProductMapper {
 
     Product mapReq(ProductRequestTO productRequestTO);

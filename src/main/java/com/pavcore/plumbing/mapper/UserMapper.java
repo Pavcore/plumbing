@@ -4,10 +4,8 @@ import com.pavcore.plumbing.dto.requestTo.UserRequestTO;
 import com.pavcore.plumbing.dto.responseTo.UserResponseTO;
 import com.pavcore.plumbing.entiy.User;
 import org.mapstruct.Mapper;
-import org.springframework.stereotype.Component;
 
-@Component
-@Mapper
+@Mapper(componentModel = "spring")
 public interface UserMapper {
 
     User mapReq(UserRequestTO userRequestTO);

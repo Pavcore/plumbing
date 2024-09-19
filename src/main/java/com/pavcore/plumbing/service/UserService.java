@@ -3,14 +3,17 @@ package com.pavcore.plumbing.service;
 import com.pavcore.plumbing.dto.requestTo.UserRequestTO;
 import com.pavcore.plumbing.dto.responseTo.UserResponseTO;
 import com.pavcore.plumbing.entiy.User;
-import com.pavcore.plumbing.exception.LoginOrEmailIsTakenException;
-import com.pavcore.plumbing.exception.UserNotFoundException;
+import com.pavcore.plumbing.exception.EmailIsTakenException;
+import com.pavcore.plumbing.exception.LoginIsTakenException;
 import com.pavcore.plumbing.exception.UserRegistryException;
 import com.pavcore.plumbing.mapper.UserMapper;
 import com.pavcore.plumbing.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -26,12 +29,18 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public UserResponseTO getUser(String login) {
-        User user = findUserByLogin(login);
-        if (user == null) {
-            throw new UserNotFoundException(login);
-        }
+    public UserResponseTO getUser(long id) {
+        User user = userRepo.getReferenceById(id);
         return userMapper.mapResp(user);
+    }
+
+    public List<UserResponseTO> getAllUsers() {
+        List<User> users = userRepo.findAll();
+        List<UserResponseTO> userTOs = new ArrayList<>();
+        for (User user : users) {
+            userTOs.add(userMapper.mapResp(user));
+        }
+        return userTOs;
     }
 
     public UserResponseTO createUser(UserRequestTO userRequestTO) {
@@ -44,20 +53,29 @@ public class UserService {
         return userMapper.mapResp(user);
     }
 
-    //todo jsession or jwt
-    public UserResponseTO updateUser(UserRequestTO userRequestTO) {
-        if (findUserByLogin(userRequestTO.getLogin()) != null || findUserByEmail(userRequestTO.getEmail()) != null) {
-            throw new LoginOrEmailIsTakenException(userRequestTO.getLogin() + " : " + userRequestTO.getEmail());
-        }
-
-        return null;
+    public void updateUserPassword(long id, String password) {
+        User user = userRepo.getReferenceById(id);
+        user.setPassword(passwordEncoder.encode(password));
     }
 
-    public void deleteUser(String login) {
-        User user = findUserByLogin(login);
-        if (user == null) {
-            throw new UserNotFoundException(login);
+    public void updateUserLogin(long id, String login) {
+        if (findUserByLogin(login) != null) {
+            throw new LoginIsTakenException(login);
         }
+        User user = userRepo.getReferenceById(id);
+        user.setLogin(login);
+    }
+
+    public void updateUserEmail(long id, String email) {
+        if (findUserByLogin(email) != null) {
+            throw new EmailIsTakenException(email);
+        }
+        User user = userRepo.getReferenceById(id);
+        user.setEmail(email);
+    }
+
+    public void deleteUser(long id) {
+        User user = userRepo.getReferenceById(id);
         userRepo.deleteById(user.getId());
     }
 

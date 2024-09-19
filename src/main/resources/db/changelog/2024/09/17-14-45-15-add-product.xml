@@ -12,10 +12,10 @@
             <column name="title" type="varchar(256)">
                 <constraints nullable="false"/>
             </column>
-            <column name="price" type="bigint">
+            <column name="price" type="double">
                 <constraints nullable="false"/>
             </column>
-            <column name="weight" type="bigint"/>
+            <column name="weight" type="double"/>
             <column name="material" type="varchar(64)"/>
             <column name="color" type="varchar(64)"/>
             <column name="article_number" type="bigint"/>
