@@ -5,16 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
-
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class OrderResponseTO {
+public class OrderProductResponseTO {
 
+    private long id;
     private long orderId;
-    private long userId;
-    private Set<OrderProductResponseTO> orderProductsResponseTOs;
+    private long productId;
+    private int quantity;
 
 }
