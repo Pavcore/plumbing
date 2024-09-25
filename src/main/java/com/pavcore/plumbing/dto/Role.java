@@ -1,7 +1,14 @@
 package com.pavcore.plumbing.dto;
 
-public enum Role {
+import org.springframework.security.core.GrantedAuthority;
+
+public enum Role implements GrantedAuthority {
     USER,
     ADMIN,
-    GUEST
+    GUEST;
+
+    @Override
+    public String getAuthority() {
+        return name();
+    }
 }

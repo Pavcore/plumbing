@@ -2,9 +2,9 @@ package com.pavcore.plumbing.service;
 
 import com.pavcore.plumbing.dto.requestTo.OrderRequestTO;
 import com.pavcore.plumbing.dto.responseTo.OrderResponseTO;
-import com.pavcore.plumbing.entiy.Order;
+import com.pavcore.plumbing.dao.postgres.entity.Order;
 import com.pavcore.plumbing.mapper.OrderMapper;
-import com.pavcore.plumbing.repo.OrderRepo;
+import com.pavcore.plumbing.dao.postgres.repo.OrderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

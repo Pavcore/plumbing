@@ -1,6 +1,6 @@
-package com.pavcore.plumbing.repo;
+package com.pavcore.plumbing.dao.postgres.repo;
 
-import com.pavcore.plumbing.entiy.User;
+import com.pavcore.plumbing.dao.postgres.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

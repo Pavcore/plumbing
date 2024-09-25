@@ -2,9 +2,9 @@ package com.pavcore.plumbing.service;
 
 import com.pavcore.plumbing.dto.requestTo.UserInfoRequestTO;
 import com.pavcore.plumbing.dto.responseTo.UserInfoResponseTO;
-import com.pavcore.plumbing.entiy.UserInfo;
+import com.pavcore.plumbing.dao.postgres.entity.UserInfo;
 import com.pavcore.plumbing.mapper.UserInfoMapper;
-import com.pavcore.plumbing.repo.UserInfoRepo;
+import com.pavcore.plumbing.dao.postgres.repo.UserInfoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -2,9 +2,9 @@ package com.pavcore.plumbing.service;
 
 import com.pavcore.plumbing.dto.requestTo.ProductRequestTO;
 import com.pavcore.plumbing.dto.responseTo.ProductResponseTO;
-import com.pavcore.plumbing.entiy.Product;
+import com.pavcore.plumbing.dao.postgres.entity.Product;
 import com.pavcore.plumbing.mapper.ProductMapper;
-import com.pavcore.plumbing.repo.ProductRepo;
+import com.pavcore.plumbing.dao.postgres.repo.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

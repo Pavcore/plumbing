@@ -1,4 +1,4 @@
-package com.pavcore.plumbing.entiy;
+package com.pavcore.plumbing.dao.postgres.entity;
 
 import com.pavcore.plumbing.dto.Role;
 import jakarta.persistence.*;
@@ -35,7 +35,7 @@ public class User {
     @Column(name = "role_id")
     private Role role;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
     private UserInfo userInfo;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)

@@ -2,12 +2,12 @@ package com.pavcore.plumbing.service;
 
 import com.pavcore.plumbing.dto.requestTo.UserRequestTO;
 import com.pavcore.plumbing.dto.responseTo.UserResponseTO;
-import com.pavcore.plumbing.entiy.User;
+import com.pavcore.plumbing.dao.postgres.entity.User;
 import com.pavcore.plumbing.exception.EmailIsTakenException;
 import com.pavcore.plumbing.exception.LoginIsTakenException;
 import com.pavcore.plumbing.exception.UserRegistryException;
 import com.pavcore.plumbing.mapper.UserMapper;
-import com.pavcore.plumbing.repo.UserRepo;
+import com.pavcore.plumbing.dao.postgres.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -79,12 +79,12 @@ public class UserService {
         userRepo.deleteById(user.getId());
     }
 
-    private User findUserByLogin(String login) {
+    public User findUserByLogin(String login) {
         return userRepo.findByLogin(login)
                 .orElse(null);
     }
 
-    private User findUserByEmail(String email) {
+    public User findUserByEmail(String email) {
         return userRepo.findByLogin(email)
                 .orElse(null);
     }

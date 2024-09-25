@@ -2,7 +2,7 @@ package com.pavcore.plumbing.mapper;
 
 import com.pavcore.plumbing.dto.requestTo.UserInfoRequestTO;
 import com.pavcore.plumbing.dto.responseTo.UserInfoResponseTO;
-import com.pavcore.plumbing.entiy.UserInfo;
+import com.pavcore.plumbing.dao.postgres.entity.UserInfo;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

@@ -1,4 +1,4 @@
-package com.pavcore.plumbing.entiy;
+package com.pavcore.plumbing.dao.postgres.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
